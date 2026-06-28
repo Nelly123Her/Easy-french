@@ -27,7 +27,7 @@ export default function VocabularyCard({ item, saved, onToggleSave }: Vocabulary
         {/* French word + gender + part of speech */}
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-baseline gap-2 flex-wrap">
-            <span className="text-2xl font-bold text-[#1F2937]">{item.french}</span>
+            <span lang="fr" className="text-2xl font-bold text-[#1F2937]">{item.french}</span>
             {item.gender && (
               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${genderColors[item.gender]}`}>
                 {genderLabel[item.gender]}
@@ -51,7 +51,7 @@ export default function VocabularyCard({ item, saved, onToggleSave }: Vocabulary
 
         {/* Example */}
         <div className="bg-[#FFFDF8] border border-[#F5EFE6] rounded-xl p-3 text-sm">
-          <p className="text-[#1F2937] font-medium">{item.example_sentence}</p>
+          <p lang="fr" className="text-[#1F2937] font-medium">{item.example_sentence}</p>
           <p className="text-gray-500 mt-1">{item.example_translation}</p>
         </div>
 

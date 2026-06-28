@@ -52,7 +52,7 @@ export default function ConversationPlayer({ lines }: ConversationPlayerProps) {
                 >
                   {line.speaker}:
                 </span>
-                <span className="text-[#1F2937] font-medium">{line.french}</span>
+                <span lang="fr" className="text-[#1F2937] font-medium">{line.french}</span>
                 {bilingual && (
                   <p className="text-sm text-gray-500 mt-1.5">{line.english}</p>
                 )}

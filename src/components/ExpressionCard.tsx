@@ -27,7 +27,7 @@ export default function ExpressionCard({ expression, saved, onToggleSave }: Expr
       <div className="p-5 flex flex-col gap-3 flex-1">
         {/* Expression + badges */}
         <div className="flex items-start justify-between gap-2">
-          <span className="text-2xl font-bold text-[#1F2937]">{expression.expression}</span>
+          <span lang="fr" className="text-2xl font-bold text-[#1F2937]">{expression.expression}</span>
           <div className="flex flex-wrap gap-1.5 shrink-0">
             <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${formality.classes}`}>
               {formality.label}
@@ -65,7 +65,7 @@ export default function ExpressionCard({ expression, saved, onToggleSave }: Expr
               <div key={i} className="flex gap-2 text-sm">
                 <span className="font-bold text-[#1E40AF] shrink-0 w-4">{line.speaker}</span>
                 <div>
-                  <p className="font-medium text-[#1F2937]">{line.french}</p>
+                  <p lang="fr" className="font-medium text-[#1F2937]">{line.french}</p>
                   <p className="text-gray-500">{line.english}</p>
                 </div>
               </div>

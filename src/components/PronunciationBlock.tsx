@@ -16,7 +16,7 @@ export default function PronunciationBlock({ items }: PronunciationBlockProps) {
           className="bg-[#F5EFE6] rounded-2xl p-5 flex flex-col gap-3"
         >
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <p className="text-xl font-bold text-[#1F2937] leading-tight">
+            <p lang="fr" className="text-xl font-bold text-[#1F2937] leading-tight">
               {item.french}
             </p>
             <div className="flex gap-2 shrink-0">
