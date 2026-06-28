@@ -195,3 +195,42 @@ export function getDailySessions(): DailySession[] {
     return [];
   }
 }
+
+// ─── Completed lessons ────────────────────────────────────────────────────────
+
+const COMPLETED_LESSONS_KEY = 'efl_completed_lessons';
+
+export function getCompletedLessons(): string[] {
+  try {
+    const raw = localStorage.getItem(COMPLETED_LESSONS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+// ─── Streak ───────────────────────────────────────────────────────────────────
+
+export function getStreak(): number {
+  const sessions = getDailySessions();
+  if (sessions.length === 0) return 0;
+
+  const uniqueDates = new Set(sessions.map(s => s.date));
+  const today = getTodayDateString();
+
+  if (!uniqueDates.has(today)) return 0;
+
+  let streak = 1;
+  const d = new Date(today + 'T12:00:00Z');
+
+  for (;;) {
+    d.setUTCDate(d.getUTCDate() - 1);
+    const prev = d.toISOString().slice(0, 10);
+    if (!uniqueDates.has(prev)) break;
+    streak++;
+  }
+
+  return streak;
+}
